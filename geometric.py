@@ -16,7 +16,6 @@ def sumProb(N, p):
 
     return sum
 
-# print(sumProb(100000, 0.5))
 def approxEntropy(N, p):
     """
     Vì entropy là giá trị trung bình của các nguồn tin nên hàm này sẽ tính được entropy của nguồn tin geometric. 

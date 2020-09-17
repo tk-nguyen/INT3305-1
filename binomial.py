@@ -22,7 +22,8 @@ def infoMeasure(n, p, N):
 
 def sumProb(N, p):
     """
-    Return the sum of probabilty of binomial sources
+    Tính tổng của xác suất của các symbol n của nguồn thông tin binomial
+    n chạy từ 1 đến N
     """
     sum = 0 
     for i in range(1, N + 1):
@@ -32,7 +33,7 @@ def sumProb(N, p):
 
 def approxEntropy(N, p):
     """
-    Return the entropy of binomial sources
+    Tính entropy của phân bố binomial
     """
     sum = 0
     for i in range(1, N + 1):

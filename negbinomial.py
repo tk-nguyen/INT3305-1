@@ -14,29 +14,30 @@ def combination(i, N):
     """
     return factorial(N)/(factorial(i)*factorial(N - i))
 
-def prob(n, p, N, r):
+def prob(n, p, r):
     return combination(n - r + 1, n)*(p ** n)*(1 - p)**r
 
-def infoMeasure(n, p, N, r):
-    return -math.log(prob(n, p, N, r), 2)
+def infoMeasure(n, p, r):
+    return -math.log(prob(n, p, r), 2)
 
 def sumProb(N, p, r):
     """
-    Return the sum of probabilty of negbinomial sources
+    Tính tổng xác suất của các symbol n từ nguồn thông tin negbinomial
+    n chạy từ 1 tới N
     """
     sum = 0 
     for i in range(1, N + 1):
-        sum += prob(i, p, N, r)
+        sum += prob(i, p, r)
 
     return sum
 
 def approxEntropy(N, p, r):
     """
-    Return the entropy of negbinomial sources
+    Tính entropy của nguồn thông tin negbinomial
     """
     sum = 0
     for i in range(1, N + 1):
-        sum += prob(i, p, N, r)*infoMeasure(i, p, N, r)
+        sum += prob(i, p, r)*infoMeasure(i, p, r)
     return sum
 
 print(approxEntropy(5, 0.5, 2))
