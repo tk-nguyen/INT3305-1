@@ -41,4 +41,3 @@ def approxEntropy(N, p, r):
     return sum
 
 print(approxEntropy(5, 0.5, 2))
-
