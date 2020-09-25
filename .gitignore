@@ -1,3 +1,8 @@
 .idea
 pyvenv.cfg
 venv
+bin
+lib
+lib64
+share
+__pycache__

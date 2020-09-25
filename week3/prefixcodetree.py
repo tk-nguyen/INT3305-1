@@ -1,26 +1,29 @@
 class Node():
-    def __init__(self, root, left, right, name):
-        self.root = root
-        self.name = name
-        self.left = left
-        self.right = right
+    def __init__(self, value):
+        self.value = value
+        self.left = None 
+        self.right = None
 
 class PrefixCodeTree():
     def __init__(self):
-        self.Node = Node(None, None, None, "")
+        self.root = None
 
     def insert(self, codeword, symbol):
-        if len(codeword) == 1:
+        if self.root is None:
             if codeword[0] == 0:
-                self.Node.left = Node(self.Node, None, None, symbol)
+                self.root = Node(None)
+                self.root.left = Node(symbol)
             elif codeword[0] == 1:
-                self.Node.right = Node(self.Node, None, None, symbol)
-            return self.Node
+                self.root = Node(None)
+                self.root.right = Node(symbol)
         else:
-            if codeword[0] == 0:
-                self.Node.left = self.insert(codeword[1:], symbol)
-            elif codeword[0] == 1:
-                self.Node.right = self.insert(codeword[1:], symbol)
-
+            if len(codeword) == 1:
+                if codeword[0] == 0:
+                    self.left = Node(symbol)
+                elif codeword[0] == 1:
+                    self.right = Node(symbol)
+            else:
+                self.insert(codeword[1:], symbol)
+        
     def decode(self, encodedData, datalen):
         return None
